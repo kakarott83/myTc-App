@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "myTc-App"
+    }
+  },
+  "defaultProject": "myTc-App",
+  "cli": {
+    "analytics": false
+  }
 }
