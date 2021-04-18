@@ -1,1 +1,26 @@
-<p>signup works!</p>
+<div class="container-md">
+    <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <div class="mb-3">
+                <label for="InputEmail" class="form-label">Email</label>
+                <input type="email" formControlName="email" class="form-control" id="inputEmail"
+                    >
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="mb-3">
+                <label for="InputPassword" class="form-label">Password</label>
+                <input type="password" formControlName="pw" class="form-control" id="inputPassword">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="mb-3">
+                <label for="InputConfirmPassword" class="form-label">Password bestätigen</label>
+                <input type="password" formControlName="confirmPw" class="form-control" id="inputConfirmPassword">
+            </div>
+        </div>
+        <button type="submit" [disabled]="signUpForm.invalid" class="btn btn-primary">Submit</button>
+        <div *ngIf="response" class="alert alert-success"><strong>Anmeldung erfolgreich: </strong> Bitte die E-Mail bestätigen und zum <a routerLink="/login">Login</a> wechseln</div>
+        <div *ngIf="error" class="alert alert-danger"><strong>Error:</strong>{{error.message}}</div>
+    </form>
+</div>

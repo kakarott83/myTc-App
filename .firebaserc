@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "mytcapp-b107b": {
+      "hosting": {
+        "myTc-App": [
+          "mytcapp-b107b"
+        ]
+      }
+    }
+  }
+}

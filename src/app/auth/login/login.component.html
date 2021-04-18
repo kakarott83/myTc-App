@@ -1,1 +1,25 @@
-<p>login works!</p>
+<div class="container-md">
+  <form [formGroup]="logInForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <div class="mb-3">
+        <label for="InputEmail" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" formControlName="email" placeholder="E-Mail">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="mb-3">
+        <label for="InputPassword" class="form-label">Password</label>
+        <input type="password" class="form-control" id="pw" formControlName="pw" placeholder="Password">
+      </div>
+    </div>
+    <button type="submit" [disabled]="logInForm.invalid" class="btn btn-primary">Submit</button>
+  </form>
+  <div *ngIf="error" class="alert alert-danger" ><strong>Error: </strong>{{error.message}}</div>
+  <button (click)="authService.anonymousLogin()" class="btn btn-primary" id="anonymous">Anononymous</button>
+  <button (click)="authService.googleLogin()" class="btn btn-primary" id="anonymous">Google</button>
+  <a routerLink="/signup" routerLinkActive="active" class="alc">kein Account? <strong>Neuen Account anlegen</strong></a>
+  <div>Status {{logInForm.valid}}</div>
+  
+</div>
+
+
