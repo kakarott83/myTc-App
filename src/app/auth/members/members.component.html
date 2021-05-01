@@ -1,5 +1,5 @@
 
 <div *ngIf="member">Hallo {{member.displayName}}</div>
-<button class="btn btn-primary" (click)="authService.logout()">sign-out</button>
+<button mat-button color="accent" (click)="authService.logout()">sign-out</button>
 <div *ngIf="member">E-Mail Verfiziert: {{member.emailVerified}}</div>
 
