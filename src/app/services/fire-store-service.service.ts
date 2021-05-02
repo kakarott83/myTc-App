@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import firebase from 'firebase/app';
+import 'firebase/firestore';
 import 'firebase/auth';
 import { Router, RouteReuseStrategy } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -77,27 +78,22 @@ export class FireStoreService {
   }
 
   getCountries() {
-    return this.countries = this.countryCollection.snapshotChanges()
-    .pipe( map(actions => actions.map(a => {
-      const data = a.payload.doc.data() as Country;
-      const id = a.payload.doc.id;
-      console.log(data, 'service');
-      return { id, ...data};
-      }))
-    );
-  }
-
-
-
-  getCountryByName(name: string) {
-    return this.countries = this.countryCollection.snapshotChanges()
-      .pipe( map(actions => actions.map(a => {
+    // return this.countryCollection.valueChanges();
+    return this.countryCollection.snapshotChanges()
+      .pipe(map(actions => actions.map(a => {
         const data = a.payload.doc.data() as Country;
         const id = a.payload.doc.id;
-        console.log(data, 'service');
         return { id, ...data};
-      }))
-    );
+      })));
+  }
+
+  getCountryByName(name: string) {
+    return this.afs.collection('country', ref => ref.where('name', '==', name))
+      .get();
+  }
+
+  getExistsDokument(name: string) {
+    return this.afs.collection('country', ref => ref.where('name', '==', name));
   }
 
 
