@@ -1,4 +1,4 @@
-<form [formGroup]="countryForm" class="adminForm">
+<form [formGroup]="countryForm" class="adminForm" (ngSubmit)="onSubmit()" >
     <mat-form-field>
         <mat-label>Name</mat-label>
         <input matInput formControlName="name" type="text">
@@ -9,6 +9,9 @@
     </mat-form-field>
     <mat-form-field>
         <mat-label>Tagespauschale</mat-label>
-        <input matInput formControlName="rate" type="text">
+        <input matInput formControlName="rate" type="number">
     </mat-form-field>
+    <button type="submit" mat-icon-button>
+        <mat-icon>save</mat-icon>
+      </button>
 </form>

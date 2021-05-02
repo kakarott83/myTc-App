@@ -1,29 +1,35 @@
 import { Injectable } from '@angular/core';
 
 import { AngularFireAuth } from '@angular/fire/auth';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import firebase from 'firebase/app';
 import 'firebase/auth';
-// import auth from 'firebase/firebase-auth';
-import { Router } from '@angular/router';
+import { Router, RouteReuseStrategy } from '@angular/router';
 import { Observable } from 'rxjs';
+import { Country } from '../interfaces/country';
+import { map } from 'rxjs/operators';
 
 // const auth = firebase.auth();
 
 @Injectable({
   providedIn: 'root'
 })
-export class FireStoreServiceService {
+export class FireStoreService {
 
   authState: any = null;
   userData: Observable<firebase.User>;
+  private countries: Observable<Country[]>;
+  private countryCollection: AngularFirestoreCollection<Country>;
 
   constructor(
     public afAuth: AngularFireAuth,
     public afs: AngularFirestore,
-    private router: Router
+    private router: Router,
   )
-  { this.userData = afAuth.authState; }
+  {
+    this.userData = afAuth.authState;
+    this.countryCollection = afs.collection('country');
+   }
 
   /******* Methoden **********/
   async anonymousLogin() {
@@ -65,6 +71,36 @@ export class FireStoreServiceService {
   async sendVerifactionMail() {
     (await this.afAuth.currentUser).sendEmailVerification();
   }
+
+  createCountry(country: Country) {
+    return this.afs.collection('country').add(country);
+  }
+
+  getCountries() {
+    return this.countries = this.countryCollection.snapshotChanges()
+    .pipe( map(actions => actions.map(a => {
+      const data = a.payload.doc.data() as Country;
+      const id = a.payload.doc.id;
+      console.log(data, 'service');
+      return { id, ...data};
+      }))
+    );
+  }
+
+
+
+  getCountryByName(name: string) {
+    return this.countries = this.countryCollection.snapshotChanges()
+      .pipe( map(actions => actions.map(a => {
+        const data = a.payload.doc.data() as Country;
+        const id = a.payload.doc.id;
+        console.log(data, 'service');
+        return { id, ...data};
+      }))
+    );
+  }
+
+
 }
 
 

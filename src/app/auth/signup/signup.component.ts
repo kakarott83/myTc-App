@@ -1,5 +1,5 @@
 import { Component, OnInit, resolveForwardRef } from '@angular/core';
-import { FireStoreServiceService } from 'src/app/services/fire-store-service.service';
+import { FireStoreService } from 'src/app/services/fire-store-service.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -15,7 +15,7 @@ export class SignupComponent implements OnInit {
   response: any;
 
   constructor(
-    public authService: FireStoreServiceService,
+    public authService: FireStoreService,
     private formBuilder: FormBuilder ) { }
 
   ngOnInit(): void {

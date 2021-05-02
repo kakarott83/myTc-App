@@ -2,7 +2,7 @@ import { Component, OnInit, HostBinding } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
-import { FireStoreServiceService } from '../../services/fire-store-service.service';
+import { FireStoreService } from '../../services/fire-store-service.service';
 
 
 @Component({
@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   error: any;
 
   constructor(
-    public authService: FireStoreServiceService,
+    public authService: FireStoreService,
     private formbuilder: FormBuilder ) { }
 
   ngOnInit(): void {

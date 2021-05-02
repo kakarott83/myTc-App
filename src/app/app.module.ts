@@ -14,6 +14,7 @@ import { SignupComponent } from './auth/signup/signup.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -45,6 +46,7 @@ export const firebaseConfig = {
     CommonModule,
     MatButtonModule,
     MatInputModule,
+    MatIconModule,
     FormsModule,
     MatFormFieldModule,
     ReactiveFormsModule,

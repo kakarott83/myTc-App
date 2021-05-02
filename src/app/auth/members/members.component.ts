@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { FireStoreServiceService } from 'src/app/services/fire-store-service.service';
+import { FireStoreService } from 'src/app/services/fire-store-service.service';
 
 @Component({
   selector: 'app-members',
@@ -9,7 +9,7 @@ import { FireStoreServiceService } from 'src/app/services/fire-store-service.ser
 })
 export class MembersComponent implements OnInit {
 
-  constructor( public authService: FireStoreServiceService ) { }
+  constructor( public authService: FireStoreService ) { }
 
   member: any;
 
