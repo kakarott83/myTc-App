@@ -17,6 +17,7 @@
   <div *ngIf="error" class="alert alert-danger" ><strong>Error: </strong>{{error.message}}</div>
   <button (click)="authService.anonymousLogin()" class="btn btn-primary" id="anonymous">Anononymous</button>
   <button (click)="authService.googleLogin()" class="btn btn-primary" id="anonymous">Google</button>
+  <button [routerLink]="['/admin']" class="btn btn-primary"  >Admin</button>
   <a routerLink="/signup" routerLinkActive="active" class="alc">kein Account? <strong>Neuen Account anlegen</strong></a>
   <div>Status {{logInForm.valid}}</div>
   

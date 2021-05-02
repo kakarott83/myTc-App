@@ -15,14 +15,14 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatTableModule } from '@angular/material/table';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdminComponent } from './components/admin/admin.component';
-import { ErrorcountryComponent } from './snackbar/errorcountry/errorcountry.component';
+
 
 export const firebaseConfig = {
     apiKey: 'AIzaSyDablJgvXY3YRq4RBR_99gwNJ01zcSIoRQ',
@@ -39,8 +39,7 @@ export const firebaseConfig = {
     MembersComponent,
     LoginComponent,
     SignupComponent,
-    AdminComponent,
-    ErrorcountryComponent
+    AdminComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +49,7 @@ export const firebaseConfig = {
     MatButtonModule,
     MatInputModule,
     MatIconModule,
-    MatSnackBar,
+    MatTableModule,
     FormsModule,
     MatFormFieldModule,
     ReactiveFormsModule,
