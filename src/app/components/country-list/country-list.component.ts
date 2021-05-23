@@ -22,6 +22,7 @@ export class CountryListComponent implements OnInit, AfterViewInit {
   dataSource;
 
   @Output() selectedRowFromList = new EventEmitter();
+  mySelectedCountry: Country;
 
   constructor(
     public fsservice: FireStoreService
@@ -34,7 +35,6 @@ export class CountryListComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     this.countryList.forEach(data => {
       this.dataSource = new MatTableDataSource(data);
-      console.log(this.dataSource, 'Data');
     });
   }
 
@@ -54,6 +54,8 @@ export class CountryListComponent implements OnInit, AfterViewInit {
   }
 
   selectCountry(selectedCountry) {
-    this.selectedRowFromList.emit(selectedCountry);
+    console.log(selectedCountry, 'output');
+    this.mySelectedCountry = selectedCountry;
+    this.selectedRowFromList.emit('hallo');
   }
 }

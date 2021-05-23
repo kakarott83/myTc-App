@@ -11,10 +11,9 @@ import { Country } from 'src/app/interfaces/country';
 export class CountryComponent implements OnInit {
 
   countryForm: FormGroup;
-  myCountry: Country;
   exists = false;
 
-  @Input() selectedCountry;
+  @Input() selectedCountry: Country;
 
   constructor(
     private formbuilder: FormBuilder,
@@ -22,21 +21,34 @@ export class CountryComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+
+    if (!this.selectedCountry) {
+      this.selectedCountry = {
+        name: '',
+        rate: 0,
+        destRate: 0
+      };
+    }
+
     this.countryForm = this.formbuilder.group({
       name: new FormControl('',  [Validators.required]),
       rate: new FormControl('', [Validators.required]),
       destRate: new FormControl('', [Validators.required])
     });
+  }
 
-    console.log(this.selectedCountry, 'selected');
+  onChanges() {
+
   }
 
   onSubmit() {
+    /*
     this.myCountry = {
       name: this.countryForm.get('name').value,
       rate: this.countryForm.get('rate').value,
       destRate: this.countryForm.get('destRate').value,
     };
+
 
     this.fsservice.getCountryByName(this.myCountry.name).forEach(resp => {
       if (resp.docs.length === 0 ) {
@@ -46,5 +58,6 @@ export class CountryComponent implements OnInit {
         this.exists = true;
       }
     });
+    */
   }
 }

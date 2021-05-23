@@ -1,3 +1,4 @@
+<app-country [selectedCountry]="mySelectedCountry"></app-country>
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef>Id</th>
@@ -19,3 +20,4 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row (click)="selectCountry(row)" *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+{{mySelectedCountry | json}}
