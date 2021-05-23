@@ -1,0 +1,19 @@
+<form [formGroup]="countryForm" class="adminForm" (ngSubmit)="onSubmit()" >
+    <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput #countryName formControlName="name" type="text">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>An- und Abreise Pauschale</mat-label>
+        <input matInput formControlName="destRate" type="number">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Tagespauschale</mat-label>
+        <input matInput formControlName="rate" type="number">
+    </mat-form-field>
+    <button type="submit" mat-icon-button>
+        <mat-icon>save</mat-icon>
+    </button>
+</form>
+<mat-error *ngIf="exists"> Land bereits vorhanden </mat-error>
+<p>My selected Row: {{selectedCountry?.name}}</p>

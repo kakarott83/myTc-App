@@ -22,6 +22,10 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdminComponent } from './components/admin/admin.component';
+import { TravelListComponent } from './components/travel-list/travel-list.component';
+import { TravelComponent } from './components/travel/travel.component';
+import { CountryComponent } from './components/country/country.component';
+import { CountryListComponent } from './components/country-list/country-list.component';
 
 
 export const firebaseConfig = {
@@ -39,7 +43,11 @@ export const firebaseConfig = {
     MembersComponent,
     LoginComponent,
     SignupComponent,
-    AdminComponent
+    AdminComponent,
+    TravelListComponent,
+    TravelComponent,
+    CountryComponent,
+    CountryListComponent
   ],
   imports: [
     BrowserModule,
