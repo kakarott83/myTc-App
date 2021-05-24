@@ -27,6 +27,7 @@ import { TravelComponent } from './components/travel/travel.component';
 import { CountryComponent } from './components/country/country.component';
 import { CountryListComponent } from './components/country-list/country-list.component';
 import { CustomerComponent } from './components/customer/customer.component';
+import { NavbarComponent } from './navigation/navbar/navbar.component';
 
 
 export const firebaseConfig = {
@@ -49,7 +50,8 @@ export const firebaseConfig = {
     TravelComponent,
     CountryComponent,
     CountryListComponent,
-    CustomerComponent
+    CustomerComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
