@@ -96,6 +96,10 @@ export class FireStoreService {
     return this.afs.collection('country', ref => ref.where('name', '==', name));
   }
 
+  deleteCountry(id: string) {
+    return this.afs.collection('country').doc(id).delete();
+  }
+
 
 }
 

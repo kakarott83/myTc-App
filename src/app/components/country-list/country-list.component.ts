@@ -59,6 +59,6 @@ export class CountryListComponent implements OnInit, AfterViewInit {
   }
 
   deleteCountry(selectedCountry) {
-    console.log(selectedCountry.id, 'delete');
+    this.fsservice.deleteCountry(selectedCountry.id);
   }
 }
