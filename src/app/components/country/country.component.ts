@@ -61,22 +61,20 @@ export class CountryComponent implements OnInit, OnChanges {
   }
 
   onSubmit() {
-    /*
-    this.myCountry = {
+    this.selectedCountry = {
       name: this.countryForm.get('name').value,
       rate: this.countryForm.get('rate').value,
       destRate: this.countryForm.get('destRate').value,
     };
 
 
-    this.fsservice.getCountryByName(this.myCountry.name).forEach(resp => {
+    this.fsservice.getCountryByName(this.selectedCountry.name).forEach(resp => {
       if (resp.docs.length === 0 ) {
         this.exists = false;
-        this.fsservice.createCountry(this.myCountry);
+        this.fsservice.createCountry(this.selectedCountry);
       } else {
         this.exists = true;
       }
     });
-    */
   }
 }

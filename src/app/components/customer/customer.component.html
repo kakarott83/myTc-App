@@ -1,1 +1,28 @@
-<p>customer works!</p>
+<form [formGroup]="customerForm" class="row g-2" (ngSubmit)="onSubmit()">
+    <div>
+        <div class="col-md-12">
+            <label>Name</label>
+            <input #customerName formControlName="name"  type="text" class="form-control"
+                autocomplete="none">
+        </div>
+    </div>
+    <div>
+        <div class="col-md-6">
+            <label>Ort</label>
+            <input #customerOrt formControlName="ort"  type="text" class="form-control"
+                autocomplete="none">
+        </div>
+    </div>
+    <div>
+        <div class="col-md-6">
+            <label>Land</label>
+            <input #customerCountry formControlName="country"  type="text" class="form-control"
+                autocomplete="none">
+        </div>
+    </div>
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary">
+            Speichern
+        </button>
+    </div>
+</form>
