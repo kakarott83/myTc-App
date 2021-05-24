@@ -18,7 +18,7 @@ export class CountryListComponent implements OnInit, AfterViewInit {
   myCountry: Country;
   exists = false;
   private countryCollection: AngularFirestoreCollection<Country>;
-  displayedColumns: string [] = ['id', 'name', 'rate', 'destRate'];
+  displayedColumns: string [] = ['id', 'name', 'rate', 'destRate', 'actions'];
   dataSource;
 
   @Output() selectedRowFromList = new EventEmitter();
@@ -54,8 +54,11 @@ export class CountryListComponent implements OnInit, AfterViewInit {
   }
 
   selectCountry(selectedCountry) {
-    console.log(selectedCountry, 'output');
     this.mySelectedCountry = selectedCountry;
     this.selectedRowFromList.emit('hallo');
+  }
+
+  deleteCountry(selectedCountry) {
+    console.log(selectedCountry.id, 'delete');
   }
 }
